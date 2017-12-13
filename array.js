@@ -1,4 +1,4 @@
-import memory from './memory';
+const memory = require('./memory');
 
 class Array {
 	//initializing array
