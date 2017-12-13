@@ -103,3 +103,24 @@ class Array {
 }
 
 Array.SIZE_RATIO = 3;
+
+let array = new Array;
+array.push(13);
+array.push(14);
+array.push(15);
+array.push(16);
+array.push(13);
+array.push(14);
+array.push(15);
+array.push(16);
+array.push(13);
+array.push(14);
+array.push(15);
+array.push(16);
+array.push(19);
+array.pop();
+array.insert(0, 12);
+array.remove(5);
+console.log(array.get(0));
+
+console.log(array);
