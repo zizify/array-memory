@@ -1,43 +1,43 @@
 // The word's worst allocator
-var memory = new Float64Array(1024);
-var head = 0;
+let memory = new Float64Array(1024);
+let head = 0;
 
-var allocate = function(size) {
-    if (head + size > memory.length) {
-        return null;
-    }
-    var start = head;
-    head += size;
-    return start;
+let allocate = function(size) {
+	if (head + size > memory.length) {
+		return null;
+	}
+	let start = head;
+	head += size;
+	return start;
 };
 
-var free = function(ptr) {
+let free = function(ptr) {
 };
 
-var copy = function(to, from, size) {
-    if (from === to) {
-        return;
-    }
-    else if (from > to) {
-        // Iterate forwards
-        for (var i=0; i<size; i++) {
-            set(to + i, get(from + i));
-        }
-    }
-    else {
-        // Iterate backwards
-        for (var i=size - 1; i>=0; i--) {
-            set(to + i, get(from + i));
-        }
-    }
+let copy = function(to, from, size) {
+	if (from === to) {
+		return;
+	}
+	else if (from > to) {
+		// Iterate forwards
+		for (let i=0; i<size; i++) {
+			set(to + i, get(from + i));
+		}
+	}
+	else {
+		// Iterate backwards
+		for (let i=size - 1; i>=0; i--) {
+			set(to + i, get(from + i));
+		}
+	}
 };
 
-var get = function(ptr) {
-    return memory[ptr];
+let get = function(ptr) {
+	return memory[ptr];
 };
 
-var set = function(ptr, value) {
-    memory[ptr] = value;
+let set = function(ptr, value) {
+	memory[ptr] = value;
 };
 
 exports.allocate = allocate;
